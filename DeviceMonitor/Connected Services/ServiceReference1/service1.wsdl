@@ -1,0 +1,694 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="FlightService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsp:Policy wsu:Id="NetTcpBinding_IService1_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <msb:BinaryEncoding xmlns:msb="http://schemas.microsoft.com/ws/06/2004/mspolicy/netbinary1">
+        </msb:BinaryEncoding>
+        <wsaw:UsingAddressing>
+        </wsaw:UsingAddressing>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import namespace="http://tempuri.org/" />
+      <xsd:import namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <xsd:import namespace="http://schemas.datacontract.org/2004/07/Model" />
+      <xsd:import namespace="http://schemas.datacontract.org/2004/07/System.Drawing" />
+      <xsd:import namespace="http://schemas.datacontract.org/2004/07/IACtxPlusCLI" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IService1_AppendCommand_InputMessage">
+    <wsdl:part name="parameters" element="tns:AppendCommand" />
+  </wsdl:message>
+  <wsdl:message name="IService1_AppendCommand_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AppendCommandResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_ExecuteCommand_InputMessage">
+    <wsdl:part name="parameters" element="tns:ExecuteCommand" />
+  </wsdl:message>
+  <wsdl:message name="IService1_ExecuteCommand_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ExecuteCommandResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_InsertCommand_InputMessage">
+    <wsdl:part name="parameters" element="tns:InsertCommand" />
+  </wsdl:message>
+  <wsdl:message name="IService1_InsertCommand_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InsertCommandResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_getFlightAttribute_InputMessage">
+    <wsdl:part name="parameters" element="tns:getFlightAttribute" />
+  </wsdl:message>
+  <wsdl:message name="IService1_getFlightAttribute_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getFlightAttributeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_heartBeat_InputMessage">
+    <wsdl:part name="parameters" element="tns:heartBeat" />
+  </wsdl:message>
+  <wsdl:message name="IService1_login_InputMessage">
+    <wsdl:part name="parameters" element="tns:login" />
+  </wsdl:message>
+  <wsdl:message name="IService1_login_OutputMessage">
+    <wsdl:part name="parameters" element="tns:loginResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_register_InputMessage">
+    <wsdl:part name="parameters" element="tns:register" />
+  </wsdl:message>
+  <wsdl:message name="IService1_register_OutputMessage">
+    <wsdl:part name="parameters" element="tns:registerResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_addUserToOnlineList_InputMessage">
+    <wsdl:part name="parameters" element="tns:addUserToOnlineList" />
+  </wsdl:message>
+  <wsdl:message name="IService1_addUserToOnlineList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:addUserToOnlineListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_getUserRoleList_InputMessage">
+    <wsdl:part name="parameters" element="tns:getUserRoleList" />
+  </wsdl:message>
+  <wsdl:message name="IService1_getUserRoleList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getUserRoleListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_getTrainningState_InputMessage">
+    <wsdl:part name="parameters" element="tns:getTrainningState" />
+  </wsdl:message>
+  <wsdl:message name="IService1_getTrainningState_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getTrainningStateResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_createTrainningGroup_InputMessage">
+    <wsdl:part name="parameters" element="tns:createTrainningGroup" />
+  </wsdl:message>
+  <wsdl:message name="IService1_editTrainningGroup_InputMessage">
+    <wsdl:part name="parameters" element="tns:editTrainningGroup" />
+  </wsdl:message>
+  <wsdl:message name="IService1_addUserToTrainningGroup_InputMessage">
+    <wsdl:part name="parameters" element="tns:addUserToTrainningGroup" />
+  </wsdl:message>
+  <wsdl:message name="IService1_removeUserToTrainningGroup_InputMessage">
+    <wsdl:part name="parameters" element="tns:removeUserToTrainningGroup" />
+  </wsdl:message>
+  <wsdl:message name="IService1_startTrainning_InputMessage">
+    <wsdl:part name="parameters" element="tns:startTrainning" />
+  </wsdl:message>
+  <wsdl:message name="IService1_reStartTrainning_InputMessage">
+    <wsdl:part name="parameters" element="tns:reStartTrainning" />
+  </wsdl:message>
+  <wsdl:message name="IService1_stopTrainning_InputMessage">
+    <wsdl:part name="parameters" element="tns:stopTrainning" />
+  </wsdl:message>
+  <wsdl:message name="IService1_pauseTrainning_InputMessage">
+    <wsdl:part name="parameters" element="tns:pauseTrainning" />
+  </wsdl:message>
+  <wsdl:message name="IService1_continueTrainning_InputMessage">
+    <wsdl:part name="parameters" element="tns:continueTrainning" />
+  </wsdl:message>
+  <wsdl:message name="IService1_setUserAuthority_InputMessage">
+    <wsdl:part name="parameters" element="tns:setUserAuthority" />
+  </wsdl:message>
+  <wsdl:message name="IService1_loadAllAuthorityData_InputMessage">
+    <wsdl:part name="parameters" element="tns:loadAllAuthorityData" />
+  </wsdl:message>
+  <wsdl:message name="IService1_getAllAuthorityData_InputMessage">
+    <wsdl:part name="parameters" element="tns:getAllAuthorityData" />
+  </wsdl:message>
+  <wsdl:message name="IService1_getAllAuthorityData_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getAllAuthorityDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_data_InputMessage">
+    <wsdl:part name="parameters" element="tns:data" />
+  </wsdl:message>
+  <wsdl:message name="IService1_data_OutputMessage">
+    <wsdl:part name="parameters" element="tns:dataResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_getLastDate_InputMessage">
+    <wsdl:part name="parameters" element="tns:getLastDate" />
+  </wsdl:message>
+  <wsdl:message name="IService1_getLastDate_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getLastDateResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_getUserAuthority_InputMessage">
+    <wsdl:part name="parameters" element="tns:getUserAuthority" />
+  </wsdl:message>
+  <wsdl:message name="IService1_getUserAuthority_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getUserAuthorityResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_isOnLine_InputMessage">
+    <wsdl:part name="parameters" element="tns:isOnLine" />
+  </wsdl:message>
+  <wsdl:message name="IService1_isOnLine_OutputMessage">
+    <wsdl:part name="parameters" element="tns:isOnLineResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetSignAttribute_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSignAttribute" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetSignAttribute_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSignAttributeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetSigns_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSigns" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetSigns_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSignsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_getClientSign_InputMessage">
+    <wsdl:part name="parameters" element="tns:getClientSign" />
+  </wsdl:message>
+  <wsdl:message name="IService1_getClientSign_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getClientSignResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_setClientSign_InputMessage">
+    <wsdl:part name="parameters" element="tns:setClientSign" />
+  </wsdl:message>
+  <wsdl:message name="IService1_setSignIsCustom_InputMessage">
+    <wsdl:part name="parameters" element="tns:setSignIsCustom" />
+  </wsdl:message>
+  <wsdl:message name="IService1_changeFlightPlanProperty_InputMessage">
+    <wsdl:part name="parameters" element="tns:changeFlightPlanProperty" />
+  </wsdl:message>
+  <wsdl:message name="IService1_getAllGroupUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:getAllGroupUser" />
+  </wsdl:message>
+  <wsdl:message name="IService1_getAllGroupUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getAllGroupUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_getAllTrainingGroup_InputMessage">
+    <wsdl:part name="parameters" element="tns:getAllTrainingGroup" />
+  </wsdl:message>
+  <wsdl:message name="IService1_getAllTrainingGroup_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getAllTrainingGroupResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_getPredictionLineByDistance_InputMessage">
+    <wsdl:part name="parameters" element="tns:getPredictionLineByDistance" />
+  </wsdl:message>
+  <wsdl:message name="IService1_getPredictionLineByDistance_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getPredictionLineByDistanceResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_getPredictionLineByTime_InputMessage">
+    <wsdl:part name="parameters" element="tns:getPredictionLineByTime" />
+  </wsdl:message>
+  <wsdl:message name="IService1_getPredictionLineByTime_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getPredictionLineByTimeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_getAirPortId_InputMessage">
+    <wsdl:part name="parameters" element="tns:getAirPortId" />
+  </wsdl:message>
+  <wsdl:message name="IService1_getAirPortId_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getAirPortIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_onlineExceptionClear_InputMessage">
+    <wsdl:part name="parameters" element="tns:onlineExceptionClear" />
+  </wsdl:message>
+  <wsdl:message name="IService1_setIsUserExecConfirm_InputMessage">
+    <wsdl:part name="parameters" element="tns:setIsUserExecConfirm" />
+  </wsdl:message>
+  <wsdl:message name="IService1_createTrainningGroupByTrainingId_InputMessage">
+    <wsdl:part name="parameters" element="tns:createTrainningGroupByTrainingId" />
+  </wsdl:message>
+  <wsdl:message name="IService1_getCallBackMessage_InputMessage">
+    <wsdl:part name="parameters" element="tns:getCallBackMessage" />
+  </wsdl:message>
+  <wsdl:message name="IService1_getCallBackMessage_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getCallBackMessageResponse" />
+  </wsdl:message>
+  <wsdl:portType msc:usingSession="true" name="IService1">
+    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="AppendCommand">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/AppendCommand" message="tns:IService1_AppendCommand_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/AppendCommandResponse" message="tns:IService1_AppendCommand_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="ExecuteCommand">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/ExecuteCommand" message="tns:IService1_ExecuteCommand_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/ExecuteCommandResponse" message="tns:IService1_ExecuteCommand_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="InsertCommand">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/InsertCommand" message="tns:IService1_InsertCommand_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/InsertCommandResponse" message="tns:IService1_InsertCommand_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="getFlightAttribute">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/getFlightAttribute" message="tns:IService1_getFlightAttribute_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/getFlightAttributeResponse" message="tns:IService1_getFlightAttribute_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="heartBeat">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/heartBeat" message="tns:IService1_heartBeat_InputMessage" />
+    </wsdl:operation>
+    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="login">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/login" message="tns:IService1_login_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/loginResponse" message="tns:IService1_login_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="register">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/register" message="tns:IService1_register_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/registerResponse" message="tns:IService1_register_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="addUserToOnlineList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/addUserToOnlineList" message="tns:IService1_addUserToOnlineList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/addUserToOnlineListResponse" message="tns:IService1_addUserToOnlineList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="getUserRoleList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/getUserRoleList" message="tns:IService1_getUserRoleList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/getUserRoleListResponse" message="tns:IService1_getUserRoleList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="getTrainningState">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/getTrainningState" message="tns:IService1_getTrainningState_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/getTrainningStateResponse" message="tns:IService1_getTrainningState_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="createTrainningGroup">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/createTrainningGroup" message="tns:IService1_createTrainningGroup_InputMessage" />
+    </wsdl:operation>
+    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="editTrainningGroup">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/editTrainningGroup" message="tns:IService1_editTrainningGroup_InputMessage" />
+    </wsdl:operation>
+    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="addUserToTrainningGroup">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/addUserToTrainningGroup" message="tns:IService1_addUserToTrainningGroup_InputMessage" />
+    </wsdl:operation>
+    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="removeUserToTrainningGroup">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/removeUserToTrainningGroup" message="tns:IService1_removeUserToTrainningGroup_InputMessage" />
+    </wsdl:operation>
+    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="startTrainning">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/startTrainning" message="tns:IService1_startTrainning_InputMessage" />
+    </wsdl:operation>
+    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="reStartTrainning">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/reStartTrainning" message="tns:IService1_reStartTrainning_InputMessage" />
+    </wsdl:operation>
+    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="stopTrainning">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/stopTrainning" message="tns:IService1_stopTrainning_InputMessage" />
+    </wsdl:operation>
+    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="pauseTrainning">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/pauseTrainning" message="tns:IService1_pauseTrainning_InputMessage" />
+    </wsdl:operation>
+    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="continueTrainning">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/continueTrainning" message="tns:IService1_continueTrainning_InputMessage" />
+    </wsdl:operation>
+    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="setUserAuthority">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/setUserAuthority" message="tns:IService1_setUserAuthority_InputMessage" />
+    </wsdl:operation>
+    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="loadAllAuthorityData">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/loadAllAuthorityData" message="tns:IService1_loadAllAuthorityData_InputMessage" />
+    </wsdl:operation>
+    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="getAllAuthorityData">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/getAllAuthorityData" message="tns:IService1_getAllAuthorityData_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/getAllAuthorityDataResponse" message="tns:IService1_getAllAuthorityData_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="data">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/data" message="tns:IService1_data_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/dataResponse" message="tns:IService1_data_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="getLastDate">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/getLastDate" message="tns:IService1_getLastDate_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/getLastDateResponse" message="tns:IService1_getLastDate_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="getUserAuthority">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/getUserAuthority" message="tns:IService1_getUserAuthority_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/getUserAuthorityResponse" message="tns:IService1_getUserAuthority_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="isOnLine">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/isOnLine" message="tns:IService1_isOnLine_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/isOnLineResponse" message="tns:IService1_isOnLine_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="GetSignAttribute">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetSignAttribute" message="tns:IService1_GetSignAttribute_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetSignAttributeResponse" message="tns:IService1_GetSignAttribute_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="GetSigns">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetSigns" message="tns:IService1_GetSigns_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetSignsResponse" message="tns:IService1_GetSigns_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="getClientSign">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/getClientSign" message="tns:IService1_getClientSign_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/getClientSignResponse" message="tns:IService1_getClientSign_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="setClientSign">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/setClientSign" message="tns:IService1_setClientSign_InputMessage" />
+    </wsdl:operation>
+    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="setSignIsCustom">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/setSignIsCustom" message="tns:IService1_setSignIsCustom_InputMessage" />
+    </wsdl:operation>
+    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="changeFlightPlanProperty">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/changeFlightPlanProperty" message="tns:IService1_changeFlightPlanProperty_InputMessage" />
+    </wsdl:operation>
+    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="getAllGroupUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/getAllGroupUser" message="tns:IService1_getAllGroupUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/getAllGroupUserResponse" message="tns:IService1_getAllGroupUser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="getAllTrainingGroup">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/getAllTrainingGroup" message="tns:IService1_getAllTrainingGroup_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/getAllTrainingGroupResponse" message="tns:IService1_getAllTrainingGroup_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="getPredictionLineByDistance">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/getPredictionLineByDistance" message="tns:IService1_getPredictionLineByDistance_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/getPredictionLineByDistanceResponse" message="tns:IService1_getPredictionLineByDistance_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="getPredictionLineByTime">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/getPredictionLineByTime" message="tns:IService1_getPredictionLineByTime_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/getPredictionLineByTimeResponse" message="tns:IService1_getPredictionLineByTime_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="getAirPortId">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/getAirPortId" message="tns:IService1_getAirPortId_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/getAirPortIdResponse" message="tns:IService1_getAirPortId_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="onlineExceptionClear">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/onlineExceptionClear" message="tns:IService1_onlineExceptionClear_InputMessage" />
+    </wsdl:operation>
+    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="setIsUserExecConfirm">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/setIsUserExecConfirm" message="tns:IService1_setIsUserExecConfirm_InputMessage" />
+    </wsdl:operation>
+    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="createTrainningGroupByTrainingId">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/createTrainningGroupByTrainingId" message="tns:IService1_createTrainningGroupByTrainingId_InputMessage" />
+    </wsdl:operation>
+    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="getCallBackMessage">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/getCallBackMessage" message="tns:IService1_getCallBackMessage_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/getCallBackMessageResponse" message="tns:IService1_getCallBackMessage_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="NetTcpBinding_IService1" type="tns:IService1">
+    <wsp:PolicyReference URI="#NetTcpBinding_IService1_policy">
+    </wsp:PolicyReference>
+    <soap12:binding transport="http://schemas.microsoft.com/soap/tcp" />
+    <wsdl:operation name="AppendCommand">
+      <soap12:operation soapAction="http://tempuri.org/IService1/AppendCommand" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ExecuteCommand">
+      <soap12:operation soapAction="http://tempuri.org/IService1/ExecuteCommand" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertCommand">
+      <soap12:operation soapAction="http://tempuri.org/IService1/InsertCommand" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getFlightAttribute">
+      <soap12:operation soapAction="http://tempuri.org/IService1/getFlightAttribute" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="heartBeat">
+      <soap12:operation soapAction="http://tempuri.org/IService1/heartBeat" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="login">
+      <soap12:operation soapAction="http://tempuri.org/IService1/login" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="register">
+      <soap12:operation soapAction="http://tempuri.org/IService1/register" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="addUserToOnlineList">
+      <soap12:operation soapAction="http://tempuri.org/IService1/addUserToOnlineList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getUserRoleList">
+      <soap12:operation soapAction="http://tempuri.org/IService1/getUserRoleList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getTrainningState">
+      <soap12:operation soapAction="http://tempuri.org/IService1/getTrainningState" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="createTrainningGroup">
+      <soap12:operation soapAction="http://tempuri.org/IService1/createTrainningGroup" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="editTrainningGroup">
+      <soap12:operation soapAction="http://tempuri.org/IService1/editTrainningGroup" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="addUserToTrainningGroup">
+      <soap12:operation soapAction="http://tempuri.org/IService1/addUserToTrainningGroup" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="removeUserToTrainningGroup">
+      <soap12:operation soapAction="http://tempuri.org/IService1/removeUserToTrainningGroup" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="startTrainning">
+      <soap12:operation soapAction="http://tempuri.org/IService1/startTrainning" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="reStartTrainning">
+      <soap12:operation soapAction="http://tempuri.org/IService1/reStartTrainning" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="stopTrainning">
+      <soap12:operation soapAction="http://tempuri.org/IService1/stopTrainning" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="pauseTrainning">
+      <soap12:operation soapAction="http://tempuri.org/IService1/pauseTrainning" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="continueTrainning">
+      <soap12:operation soapAction="http://tempuri.org/IService1/continueTrainning" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="setUserAuthority">
+      <soap12:operation soapAction="http://tempuri.org/IService1/setUserAuthority" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="loadAllAuthorityData">
+      <soap12:operation soapAction="http://tempuri.org/IService1/loadAllAuthorityData" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="getAllAuthorityData">
+      <soap12:operation soapAction="http://tempuri.org/IService1/getAllAuthorityData" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="data">
+      <soap12:operation soapAction="http://tempuri.org/IService1/data" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getLastDate">
+      <soap12:operation soapAction="http://tempuri.org/IService1/getLastDate" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getUserAuthority">
+      <soap12:operation soapAction="http://tempuri.org/IService1/getUserAuthority" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="isOnLine">
+      <soap12:operation soapAction="http://tempuri.org/IService1/isOnLine" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSignAttribute">
+      <soap12:operation soapAction="http://tempuri.org/IService1/GetSignAttribute" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSigns">
+      <soap12:operation soapAction="http://tempuri.org/IService1/GetSigns" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getClientSign">
+      <soap12:operation soapAction="http://tempuri.org/IService1/getClientSign" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="setClientSign">
+      <soap12:operation soapAction="http://tempuri.org/IService1/setClientSign" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="setSignIsCustom">
+      <soap12:operation soapAction="http://tempuri.org/IService1/setSignIsCustom" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="changeFlightPlanProperty">
+      <soap12:operation soapAction="http://tempuri.org/IService1/changeFlightPlanProperty" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="getAllGroupUser">
+      <soap12:operation soapAction="http://tempuri.org/IService1/getAllGroupUser" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAllTrainingGroup">
+      <soap12:operation soapAction="http://tempuri.org/IService1/getAllTrainingGroup" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getPredictionLineByDistance">
+      <soap12:operation soapAction="http://tempuri.org/IService1/getPredictionLineByDistance" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getPredictionLineByTime">
+      <soap12:operation soapAction="http://tempuri.org/IService1/getPredictionLineByTime" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAirPortId">
+      <soap12:operation soapAction="http://tempuri.org/IService1/getAirPortId" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="onlineExceptionClear">
+      <soap12:operation soapAction="http://tempuri.org/IService1/onlineExceptionClear" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="setIsUserExecConfirm">
+      <soap12:operation soapAction="http://tempuri.org/IService1/setIsUserExecConfirm" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="createTrainningGroupByTrainingId">
+      <soap12:operation soapAction="http://tempuri.org/IService1/createTrainningGroupByTrainingId" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="getCallBackMessage">
+      <soap12:operation soapAction="http://tempuri.org/IService1/getCallBackMessage" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="FlightService">
+    <wsdl:port name="NetTcpBinding_IService1" binding="tns:NetTcpBinding_IService1">
+      <soap12:address location="net.tcp://172.16.1.117:8733/Design_Time_Addresses/FlightManagerServer/FlightService1/" />
+      <wsa10:EndpointReference>
+        <wsa10:Address>net.tcp://172.16.1.117:8733/Design_Time_Addresses/FlightManagerServer/FlightService1/</wsa10:Address>
+        <Identity xmlns="http://schemas.xmlsoap.org/ws/2006/02/addressingidentity">
+          <Dns>localhost</Dns>
+        </Identity>
+      </wsa10:EndpointReference>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

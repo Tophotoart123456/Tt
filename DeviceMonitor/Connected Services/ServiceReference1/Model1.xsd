@@ -1,0 +1,224 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/Model" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Model" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import namespace="http://schemas.datacontract.org/2004/07/System.Drawing" />
+  <xs:import namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+  <xs:complexType name="FlightPlan">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="DescriptionResolvings" nillable="true" type="tns:ArrayOfDescriptionResolving" />
+      <xs:element minOccurs="0" name="SectoIdBeforeTransfer" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="airlinerNo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="airlinesId" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="airportNo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="altitude" type="xs:double" />
+      <xs:element minOccurs="0" name="angle" type="xs:double" />
+      <xs:element minOccurs="0" name="arrivalAirportNo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="authorityIdBeforeTransfer" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="conditionCommandMsg" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="conditionCommandTime" type="xs:long" />
+      <xs:element minOccurs="0" name="differenceAltitude" type="xs:double" />
+      <xs:element minOccurs="0" name="expectArrivalTime" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="expectDepartureTime" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="flightPlanId" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="flightPlanName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="flightPlanType" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="flightPlanTypeCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="flightRules" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="freeText" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="gatePositionId" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="initialCommandFly" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="initialCommandTax" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="isTempAuthority" type="xs:boolean" />
+      <xs:element minOccurs="0" name="isTempSector" type="xs:boolean" />
+      <xs:element minOccurs="0" name="messageStatus" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="operationAuthorityId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="operationName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="pitch" type="xs:double" />
+      <xs:element minOccurs="0" name="referencePressureValue" nillable="true" type="xs:double" />
+      <xs:element minOccurs="0" name="registerNo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="roll" type="xs:double" />
+      <xs:element minOccurs="0" name="runwayName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="sectorRadarId" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="sectorRadarName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="speed" type="xs:double" />
+      <xs:element minOccurs="0" name="ssrNo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="visSeconds" type="xs:int" />
+      <xs:element minOccurs="0" name="visTime" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="visable" type="xs:boolean" />
+      <xs:element minOccurs="0" name="wakeFlowType" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="x" type="xs:double" />
+      <xs:element minOccurs="0" name="y" type="xs:double" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="FlightPlan" nillable="true" type="tns:FlightPlan" />
+  <xs:complexType name="ArrayOfDescriptionResolving">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="DescriptionResolving" nillable="true" type="tns:DescriptionResolving" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfDescriptionResolving" nillable="true" type="tns:ArrayOfDescriptionResolving" />
+  <xs:complexType name="DescriptionResolving">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CellType" type="xs:int" />
+      <xs:element minOccurs="0" name="Column" type="xs:int" />
+      <xs:element minOccurs="0" name="ColumnWidth" type="xs:float" />
+      <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/System.Drawing" minOccurs="0" name="FiledColor" type="q1:Color" />
+      <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/System.Drawing" minOccurs="0" name="FiledFont" nillable="true" type="q2:Font" />
+      <xs:element minOccurs="0" name="FiledName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FiledOpacity" type="xs:float" />
+      <xs:element minOccurs="0" name="IsExclusiveLine" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsGlint" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsPermission" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsVisibleFiled" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsYetClint" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Row" type="xs:int" />
+      <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/System.Drawing" minOccurs="0" name="TemporaryColor" type="q3:Color" />
+      <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/System.Drawing" minOccurs="0" name="TemporaryFont" nillable="true" type="q4:Font" />
+      <xs:element minOccurs="0" name="Text" nillable="true" type="xs:string" />
+      <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/System.Drawing" minOccurs="0" name="TextColor" type="q5:Color" />
+      <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/System.Drawing" minOccurs="0" name="TextFont" nillable="true" type="q6:Font" />
+      <xs:element minOccurs="0" name="TextOpacity" type="xs:float" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DescriptionResolving" nillable="true" type="tns:DescriptionResolving" />
+  <xs:simpleType name="TrainningGroupState">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="UnStart" />
+      <xs:enumeration value="Started" />
+      <xs:enumeration value="Pause" />
+      <xs:enumeration value="Stop" />
+      <xs:enumeration value="UnKnow" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="TrainningGroupState" nillable="true" type="tns:TrainningGroupState" />
+  <xs:simpleType name="PlanType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="AIRSPACE" />
+      <xs:enumeration value="ENVIRONMENTAL" />
+      <xs:enumeration value="FLIGHT" />
+      <xs:enumeration value="OBJECT" />
+      <xs:enumeration value="SCRIPT" />
+      <xs:enumeration value="VEHICLE" />
+      <xs:enumeration value="CONDITIONCOMMAND" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="PlanType" nillable="true" type="tns:PlanType" />
+  <xs:complexType name="AuthorityGroup">
+    <xs:sequence>
+      <xs:element xmlns:q7="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="AirLines" nillable="true" type="q7:ArrayOfKeyValueOfstringArrayOfstringty7Ep6D1" />
+      <xs:element minOccurs="0" name="AirPortId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="AllGroupChecked" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="AuthorityID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="AuthorityName" nillable="true" type="xs:string" />
+      <xs:element xmlns:q8="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="FlightPlanType" nillable="true" type="q8:ArrayOfKeyValueOfstringstring" />
+      <xs:element xmlns:q9="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="Parking" nillable="true" type="q9:ArrayOfKeyValueOfstringArrayOfstringty7Ep6D1" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="AuthorityGroup" nillable="true" type="tns:AuthorityGroup" />
+  <xs:simpleType name="AuthorityType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="FLIGHTPLANTYPE" />
+      <xs:enumeration value="AIRLINES" />
+      <xs:enumeration value="PARKING" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="AuthorityType" nillable="true" type="tns:AuthorityType" />
+  <xs:complexType name="ArrayOfSignAttribute">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="SignAttribute" nillable="true" type="tns:SignAttribute" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfSignAttribute" nillable="true" type="tns:ArrayOfSignAttribute" />
+  <xs:complexType name="SignAttribute">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="flightPlanName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="signAttributeCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="signAttributeId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="signAttributeInnerColor" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="signAttributeOuterColor" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="SignAttribute" nillable="true" type="tns:SignAttribute" />
+  <xs:complexType name="ArrayOfSign">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Sign" nillable="true" type="tns:Sign" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfSign" nillable="true" type="tns:ArrayOfSign" />
+  <xs:complexType name="Sign">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="airportId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="lightPlanTypeId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="signAttributeIds" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="signColor" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="signId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="signType" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="userRole" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Sign" nillable="true" type="tns:Sign" />
+  <xs:complexType name="ClientSign">
+    <xs:sequence>
+      <xs:element xmlns:q10="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="Signs" nillable="true" type="q10:ArrayOfKeyValueOfstringSignzsY_SOkxf" />
+      <xs:element minOccurs="0" name="isUseCustomizeSet" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ClientSign" nillable="true" type="tns:ClientSign" />
+  <xs:complexType name="ArrayOfRoleUserRelation">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="RoleUserRelation" nillable="true" type="tns:RoleUserRelation" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfRoleUserRelation" nillable="true" type="tns:ArrayOfRoleUserRelation" />
+  <xs:complexType name="RoleUserRelation">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="role" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="trainGroupId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="user" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="RoleUserRelation" nillable="true" type="tns:RoleUserRelation" />
+  <xs:complexType name="ArrayOfTrainPlan">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="TrainPlan" nillable="true" type="tns:TrainPlan" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfTrainPlan" nillable="true" type="tns:ArrayOfTrainPlan" />
+  <xs:complexType name="TrainPlan">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="StartedTime" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="UnionGroupID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="airPortId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="isUnionGroup" type="xs:boolean" />
+      <xs:element minOccurs="0" name="trainPlanGroupID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="trainPlanGroupName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="trainPlanID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="trainPlanName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="trainingGroupState" type="tns:TrainningGroupState" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="TrainPlan" nillable="true" type="tns:TrainPlan" />
+  <xs:complexType name="ArrayOfFlightCallback">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="FlightCallback" nillable="true" type="tns:FlightCallback" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfFlightCallback" nillable="true" type="tns:ArrayOfFlightCallback" />
+  <xs:complexType name="FlightCallback">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="beforeTime" type="xs:long" />
+      <xs:element minOccurs="0" name="flightNo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="messggeType" type="tns:msgType" />
+      <xs:element minOccurs="0" name="msg" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="FlightCallback" nillable="true" type="tns:FlightCallback" />
+  <xs:simpleType name="msgType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="REPORT_MESSAGE" />
+      <xs:enumeration value="CONFIRM_MESSAGE" />
+      <xs:enumeration value="CONDITION_MESSAGE" />
+      <xs:enumeration value="BAR_MESSAGE" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="msgType" nillable="true" type="tns:msgType" />
+</xs:schema>

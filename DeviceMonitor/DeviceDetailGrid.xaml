@@ -1,0 +1,127 @@
+﻿<UserControl x:Class="DeviceMonitor.DeviceDetailGrid"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:DeviceMonitor"
+             mc:Ignorable="d" 
+             d:DesignHeight="262" d:DesignWidth="410">
+    <UserControl.Resources>
+        <Style x:Key="CheckBoxStyle" TargetType="{x:Type CheckBox}">
+            <Setter Property="SnapsToDevicePixels" Value="true" />
+            <Setter Property="OverridesDefaultStyle" Value="False" />
+            <Setter Property="FocusVisualStyle" Value="{DynamicResource CheckBoxFocusVisual}" />
+            <Setter Property="IsChecked" Value="False"/>
+            <Setter Property="Height" Value="14"/>
+            <Setter Property="Width" Value="14"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="CheckBox">
+                        <Border Background="{TemplateBinding Background }">
+                            <Grid >
+                                <Grid Height="{TemplateBinding Height}" Width="{TemplateBinding Height}">
+                                    <Rectangle x:Name="CheckBoxRectangle" Height="{TemplateBinding Height }" Width="{TemplateBinding Height}" Fill="#444444"  />
+                                    <Rectangle x:Name="CheckBoxRectangleOut" Height="{TemplateBinding Height }" Width="{TemplateBinding Height}" Stroke="#FFFFFF" StrokeThickness="1" />
+                                    <Grid x:Name="CheckedMark" Width="{Binding ElementName=CheckBoxRectangleOut, Path=Width}" Height="{Binding ElementName=CheckBoxRectangleOut, Path=Width}" Visibility="Collapsed">
+                                        <Path SnapsToDevicePixels="True" StrokeThickness="2" Data="M1,5 L7,11" Stroke="#ffffff"/>
+                                        <Path SnapsToDevicePixels="True" StrokeThickness="2" Data="M7,11 L12,2" Stroke="#ffffff"/>
+                                    </Grid>
+                                </Grid>
+                            </Grid>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsChecked" Value="True">
+                                <Setter TargetName="CheckedMark" Property="Visibility" Value="Visible"></Setter>
+                                <Setter TargetName="CheckBoxRectangle" Property="Fill" Value="#1879E7"></Setter>
+                                <Setter TargetName="CheckBoxRectangle" Property="Opacity" Value="1"></Setter>
+                                <Setter TargetName="CheckBoxRectangleOut" Property="Stroke" Value="Transparent"></Setter>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </UserControl.Resources>
+    <Grid>
+        <DataGrid HorizontalAlignment="Center"  VerticalAlignment="Stretch" Background="#535353"
+                  AutoGenerateColumns="False" CanUserAddRows="False" CanUserResizeColumns="False" SelectionMode="Single"
+                   FontSize="16" BorderThickness="1" BorderBrush="#414141" ItemsSource="{Binding DeviceList}">
+            <DataGrid.Style>
+                <Style TargetType="DataGrid">
+                    <!--网格线颜色-->
+                    <Setter Property="CanUserResizeColumns" Value="false"/>
+                    <Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Auto"></Setter>
+                    <Setter Property="HeadersVisibility" Value="Column"/>
+                    <Setter Property="HorizontalGridLinesBrush">
+                        <Setter.Value>
+                            <SolidColorBrush Color="#414141"/>
+                        </Setter.Value>
+                    </Setter>
+                    <Setter Property="VerticalGridLinesBrush">
+                        <Setter.Value>
+                            <SolidColorBrush Color="#414141"/>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+            </DataGrid.Style>
+            <DataGrid.ColumnHeaderStyle>
+                <Style TargetType="DataGridColumnHeader">
+                    <Setter Property="HorizontalContentAlignment" Value="Center"></Setter>
+                    <Setter Property="VerticalContentAlignment" Value="Center"></Setter>
+                    <Setter Property="FontSize" Value="13"></Setter>
+                    <Setter Property="Height" Value="34"></Setter>
+                    <Setter Property="Background" Value="#535353"></Setter>
+                    <Setter Property="Foreground" Value="#FFFFFF"></Setter>
+                    <Setter Property="BorderThickness" Value="1"></Setter>
+                    <Setter Property="BorderBrush" Value="#414141"></Setter>
+                </Style>
+            </DataGrid.ColumnHeaderStyle>
+            <DataGrid.RowStyle>
+                <Style TargetType="DataGridRow">
+                    <Setter Property="Background" Value="#454545" />
+                    <Setter Property="Height" Value="30"/>
+                    <Setter Property="FontSize" Value="12"></Setter>
+                    <Setter Property="Foreground" Value="#FFFFFF" />
+                    <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                    <Setter Property="VerticalContentAlignment" Value="Center"/>
+                    <Style.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Background" Value="#333333"/>
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </DataGrid.RowStyle>
+            <DataGrid.CellStyle>
+                <Style TargetType="DataGridCell">
+                    <Style.Triggers>
+                        <Trigger Property="IsSelected" Value="True">
+                            <Setter Property="Background" Value="#454545"/>
+                            <Setter Property="BorderBrush" Value="#414141"/>
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </DataGrid.CellStyle>
+            <DataGrid.Columns>
+                <DataGridTemplateColumn Width="0.3*">                    <DataGridTemplateColumn.HeaderTemplate>
+                        <DataTemplate>
+                            <CheckBox Name="cbbSelALL" Style="{StaticResource CheckBoxStyle}" IsChecked="{Binding IsSelected, Mode=TwoWay}"
+                                      Command="{Binding DataContext.SelectAllClick , RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type DataGrid}}}"
+                                      CommandParameter="{Binding RelativeSource={RelativeSource Self}}"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.HeaderTemplate>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <CheckBox Name="cbsel" Style="{StaticResource CheckBoxStyle}" IsChecked="{Binding IsChecked, Mode=TwoWay}"
+                                      Command="{Binding DataContext.ItemSelectClick , RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type DataGrid}}}" 
+                                      CommandParameter="{Binding}" />
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTextColumn Header="设备分组名称" Foreground="#FFFFFF"  Width="1.2*" FontFamily="Microsoft YaHei" FontSize="12" Binding="{Binding GroupName}"  IsReadOnly="True"/>
+                <DataGridTextColumn Header="设备名称" Width="*" Foreground="#FFFFFF"  FontFamily="Microsoft YaHei" FontSize="12" Binding="{Binding DeviceName}" IsReadOnly="True"/>
+                <DataGridTextColumn Header="IP地址" Width="*" Foreground="#FFFFFF"  FontFamily="Microsoft YaHei" FontSize="12" Binding="{Binding IpAddress}"  IsReadOnly="True"/>
+                <DataGridTextColumn Header="开机状态" Width="0.8*" Foreground="#FFFFFF"  FontFamily="Microsoft YaHei" FontSize="12" Binding="{Binding DeviceStatus}" IsReadOnly="True"/>
+                </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</UserControl>

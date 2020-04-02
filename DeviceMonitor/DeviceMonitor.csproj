@@ -1,0 +1,546 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{4B89A1C6-8AED-432F-B612-4AFC493638C6}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>DeviceMonitor</RootNamespace>
+    <AssemblyName>DeviceMonitor</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Helper, Version=1.0.0.0, Culture=neutral, processorArchitecture=AMD64">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\dll\Helper.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\dll\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Xaml" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
+    <Reference Include="WindowsFormsIntegration" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AuthoritySetting.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="AuthoritySetting.Designer.cs">
+      <DependentUpon>AuthoritySetting.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Authority\authorityControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Authority\authorityControl.designer.cs">
+      <DependentUpon>authorityControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Authority\frmAuthorityGroup1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Authority\frmAuthorityGroup1.designer.cs">
+      <DependentUpon>frmAuthorityGroup1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Authority\frmBasicSetup1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Authority\frmBasicSetup1.designer.cs">
+      <DependentUpon>frmBasicSetup1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ButtonExt.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ButtonExt.Designer.cs">
+      <DependentUpon>ButtonExt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CaptainSetting.xaml.cs">
+      <DependentUpon>CaptainSetting.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="CaptainSftSetting.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CaptainSftSetting.Designer.cs">
+      <DependentUpon>CaptainSftSetting.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CommunicationSetting.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CommunicationSetting.Designer.cs">
+      <DependentUpon>CommunicationSetting.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ComputerSetting.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ComputerSetting.Designer.cs">
+      <DependentUpon>ComputerSetting.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Connected Services\ServiceReference1\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Device.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Device.Designer.cs">
+      <DependentUpon>Device.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DeviceControl.cs" />
+    <Compile Include="DeviceDetailGrid.xaml.cs">
+      <DependentUpon>DeviceDetailGrid.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DeviceDetailList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DeviceDetailList.Designer.cs">
+      <DependentUpon>DeviceDetailList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DeviceGroupingSetting.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DeviceGroupingSetting.Designer.cs">
+      <DependentUpon>DeviceGroupingSetting.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DrawProgressBase.cs" />
+    <Compile Include="FollowPanelBase.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Main.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_Main.Designer.cs">
+      <DependentUpon>Form_Main.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormBase.cs" />
+    <Compile Include="Form_Room.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_Room.Designer.cs">
+      <DependentUpon>Form_Room.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Show.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_Show.Designer.cs">
+      <DependentUpon>Form_Show.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form_TrainGroup.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_TrainGroup.Designer.cs">
+      <DependentUpon>Form_TrainGroup.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Group.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Group.Designer.cs">
+      <DependentUpon>Group.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GroupInfo\Airport.cs" />
+    <Compile Include="GroupInfo\ConditionCommandCommunicationInfo.cs" />
+    <Compile Include="GroupInfo\ConditionCommandEnvironmentalGroupRelationInfo.cs" />
+    <Compile Include="GroupInfo\ConditionCommandEventInfo.cs" />
+    <Compile Include="GroupInfo\ConditionCommandGroupInfo.cs" />
+    <Compile Include="GroupInfo\ConditionCommandGroupRelationInfo.cs" />
+    <Compile Include="GroupInfo\ConditionCommandInfo.cs" />
+    <Compile Include="GroupInfo\ConditionCommandRemindInfo.cs" />
+    <Compile Include="GroupInfo\ConditionCommandStageInfo.cs" />
+    <Compile Include="GroupInfo\ConditionCommandTrainingRelation.cs" />
+    <Compile Include="GroupInfo\FlightPlan.cs" />
+    <Compile Include="GroupInfo\HttpReturn.cs" />
+    <Compile Include="GroupInfo\TrainPlan.cs" />
+    <Compile Include="GroupSeting.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GroupSeting.Designer.cs">
+      <DependentUpon>GroupSeting.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LANAllComputerIp.cs" />
+    <Compile Include="Model\CaptainModel.cs" />
+    <Compile Include="Model\CheckItemModel.cs" />
+    <Compile Include="Model\DeviceDetailInfo.cs" />
+    <Compile Include="Model\DeviceDetailModel.cs" />
+    <Compile Include="Model\PropertyChangedNotify.cs" />
+    <Compile Include="Other\ComputerControl.cs" />
+    <Compile Include="Other\OpereatProcess.cs" />
+    <Compile Include="Other\Packet.cs" />
+    <Compile Include="Other\SocketCom.cs" />
+    <Compile Include="Other\SoftInfo.cs" />
+    <Compile Include="Other\ThreadBase.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Service1Callback.cs" />
+    <Compile Include="Soft.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Soft.Designer.cs">
+      <DependentUpon>Soft.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModel\CaptainVM.cs" />
+    <Compile Include="ViewModel\DeviceDetailVM.cs" />
+    <Compile Include="ViewModel\RelayCommand.cs" />
+    <Compile Include="WaterMarkTextBoxColumn.cs" />
+    <Compile Include="WaterMarkTextBoxColumn.Designer.cs">
+      <DependentUpon>WaterMarkTextBoxColumn.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="AuthoritySetting.resx">
+      <DependentUpon>AuthoritySetting.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Authority\authorityControl.resx">
+      <DependentUpon>authorityControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Authority\frmAuthorityGroup1.resx">
+      <DependentUpon>frmAuthorityGroup1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ButtonExt.resx">
+      <DependentUpon>ButtonExt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CaptainSftSetting.resx">
+      <DependentUpon>CaptainSftSetting.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CommunicationSetting.resx">
+      <DependentUpon>CommunicationSetting.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ComputerSetting.resx">
+      <DependentUpon>ComputerSetting.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Device.resx">
+      <DependentUpon>Device.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DeviceDetailList.resx">
+      <DependentUpon>DeviceDetailList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DeviceGroupingSetting.resx">
+      <DependentUpon>DeviceGroupingSetting.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_Main.resx">
+      <DependentUpon>Form_Main.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_Room.resx">
+      <DependentUpon>Form_Room.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_Show.resx">
+      <DependentUpon>Form_Show.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_TrainGroup.resx">
+      <DependentUpon>Form_TrainGroup.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Group.resx">
+      <DependentUpon>Group.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GroupSeting.resx">
+      <DependentUpon>GroupSeting.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="Soft.resx">
+      <DependentUpon>Soft.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="Connected Services\ServiceReference1\Arrays1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\ServiceReference1\DeviceMonitor.ServiceReference1.AuthorityGroup.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ServiceReference1\DeviceMonitor.ServiceReference1.AuthorityType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ServiceReference1\DeviceMonitor.ServiceReference1.ClientSign.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ServiceReference1\DeviceMonitor.ServiceReference1.FlightCallback.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ServiceReference1\DeviceMonitor.ServiceReference1.FlightPlan.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ServiceReference1\DeviceMonitor.ServiceReference1.FPoint.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ServiceReference1\DeviceMonitor.ServiceReference1.RoleUserRelation.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ServiceReference1\DeviceMonitor.ServiceReference1.Sign.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ServiceReference1\DeviceMonitor.ServiceReference1.SignAttribute.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ServiceReference1\DeviceMonitor.ServiceReference1.TrainningGroupState.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ServiceReference1\DeviceMonitor.ServiceReference1.TrainPlan.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ServiceReference1\IACtxPlusCLI1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\ServiceReference1\Model1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\ServiceReference1\service1.wsdl" />
+    <None Include="Connected Services\ServiceReference1\service2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\ServiceReference1\service21.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\ServiceReference1\System.Drawing1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resource\icon_closePopUp%402x.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resource\icon_fullscreen%402x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resource\关机.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resource\开机.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resource\1x\icon_close%401x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resource\1x\icon_closePopUp%402x.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resource\1x\icon_closeright%401x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resource\1x\icon_CompanyLogo%402x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resource\1x\icon_fullscreen%401x .png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resource\1x\icon_load_off%401x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resource\1x\icon_load_on%401x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resource\1x\icon_lock_off%401x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resource\1x\icon_lock_on%401x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resource\1x\icon_minusbtn%401x.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resource\1x\icon_play_off%401x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resource\1x\icon_play_on%401x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resource\1x\icon_plusbtn%401x.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resource\1x\icon_pre_grey%401x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resource\1x\icon_record_off%401x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resource\1x\icon_record_on%401x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resource\1x\icon_setup_white%401x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resource\1x\icon_stop_off%401x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resource\1x\icon_stop_on%401x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resource\1x\icon_closewindow%401x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resource\1x\icon_minuscreen%401x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resource\1x\icon_setup_grey%401x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resource\1x\icon_separte_white%401x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resource\1x\icon_pause_on%401x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Connected Services\ServiceReference1\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ServiceReference1\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ServiceReference1\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ServiceReference1\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resource\1x\矩形%401x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="resource\1.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="resource\2.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="resource\3.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="resource\4.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="resource\客户端掉线在线图标\1-1.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="resource\客户端掉线在线图标\1.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="resource\客户端掉线在线图标\2-2.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="resource\客户端掉线在线图标\2.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="resource\客户端掉线在线图标\3-3.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="resource\客户端掉线在线图标\3.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="resource\客户端掉线在线图标\4-4.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="resource\客户端掉线在线图标\4.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="CaptainSetting.xaml">
+      <SubType>Designer</SubType>
+      <Generator>XamlIntelliSenseFileGenerator</Generator>
+    </Page>
+    <Page Include="DeviceDetailGrid.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
